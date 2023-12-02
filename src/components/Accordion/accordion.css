@@ -1,0 +1,101 @@
+.accordion {
+    width: 100%;
+    border-radius: 6px;
+    transition: .3s linear;
+}
+
+.accordion-item {
+    margin-bottom: 16px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: .3s linear;
+}
+
+.accordion-header {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    background: #1C786B;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+    z-index: 9;
+    transition: .3s linear;
+}
+
+.accordion-collapse {
+    margin-top: -4px;
+    height: 0;
+    transform: translateY(-200px);
+    transition: 0.3s linear;
+}
+
+.accordion-collapse.open {
+    height: 100%;
+    transform: translateY(0);
+}
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background: #1C786B;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.accordion-body .accBody {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+.accordion-body .accBody span {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.accordion-arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    display: block;
+    transition: .3s linear;
+}
+
+.accordion-arrow.active {
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1024px) {
+
+    .accordion-header,
+    .accordion-body {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .accordion-header,
+    .accordion-body {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .accordion{
+        max-width: 836px;
+    }
+}
