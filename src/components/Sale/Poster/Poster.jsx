@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const Poster = () => {
+const Poster = ({ img }) => {
   return (
-    <div>
-      <img src="/images/hero_logo.png" alt="hero_logo" className='hero_logo' />
+    <div className="hero_poster">
+      <img
+        src={`http://coderali.khamidmk.beget.tech/public/storage/carousels/${img}`}
+        alt="hero_logo"
+        className="hero_logo"
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Poster
+export default Poster;
