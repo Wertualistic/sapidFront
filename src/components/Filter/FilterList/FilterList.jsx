@@ -59,7 +59,7 @@ const FilterList = ({ categories, setCategories }) => {
       setSelectedCategory(categoryId);
     } else {
       window.scrollTo({
-        top: 1800 + 550,
+        top: 1800 + 600,
         behavior: "smooth",
       });
       setSelectedCategory(categoryId);
