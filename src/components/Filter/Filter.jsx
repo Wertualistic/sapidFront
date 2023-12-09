@@ -13,20 +13,12 @@ const Filter = ({
   filterProducts,
   selectedCategory,
 }) => {
-  const [navbar, setNavbar] = useState(false);
   const { totalPrice } = useSelector((state) => state.cart);
-
-  window.onscroll = () => {
-    if (window.scrollY >= "650") {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-  };
+  console.log(totalPrice);
 
   return (
     <div className="filter" id="filterSection">
-      <div className={`filter_block ${navbar ? "FilterActive" : ""}`}>
+      <div className="filter_block container">
         <FilterList
           categories={categories}
           setCategories={setCategories}
@@ -35,7 +27,7 @@ const Filter = ({
         />
         <Button className="filter_cart" onClick={handleClick}>
           <img src="/images/basket.svg" alt="" />
-          {totalPrice}
+          <p>{parseInt(totalPrice)} sum</p>
         </Button>
       </div>
     </div>

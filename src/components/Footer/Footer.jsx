@@ -32,9 +32,7 @@ const Footer = () => {
               Контакты
             </li>
           </ul>
-          <div className="footer_language">
-            <img src="/images/icon_russia.svg" alt="" />
-          </div>
+          <div id="google_translate_element"></div>
         </div>
       </div>
       <div className="footer_bottom">

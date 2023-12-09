@@ -1,27 +1,22 @@
 .filter {
+    position: sticky;
+    top: -1px;
     width: 100%;
+    padding: 20px 0;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.01),
+        0px 3px 6px 0px rgba(0, 0, 0, 0.01),
+        0px 11px 11px 0px rgba(0, 0, 0, 0.01),
+        0px 24px 15px 0px rgba(0, 0, 0, 0.01),
+        0px 43px 17px 0px rgba(0, 0, 0, 0.00),
+        0px 68px 19px 0px rgba(0, 0, 0, 0.00);
     background: #FFFFFF;
+    z-index: 10;
 }
 
 .filter_block {
-    width: 100%;
-    padding: 20px 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: .3s linear;
-    z-index: 10;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.01), 0px 3px 6px 0px rgba(0, 0, 0, 0.01), 0px 11px 11px 0px rgba(0, 0, 0, 0.01), 0px 24px 15px 0px rgba(0, 0, 0, 0.01), 0px 43px 17px 0px rgba(0, 0, 0, 0.00), 0px 68px 19px 0px rgba(0, 0, 0, 0.00);
-}
-
-.FilterActive {
-    width: 100vw;
-    background: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px 100px;
-    z-index: 10;
 }
 
 .filter_list {
@@ -80,7 +75,7 @@
     }
 
     .filter_block {
-        padding: 20px 20px;
+        padding: 0px 20px;
     }
 
     .filter_list::-webkit-scrollbar {

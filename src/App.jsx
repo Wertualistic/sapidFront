@@ -12,24 +12,6 @@ const App = () => {
   const [cartOpened, setCartOpened] = useState(false);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(0);
-  const [originalProducts, setOriginalProducts] = useState([]);
-
-  const filterProducts = (id) => {
-    setSelectedCategory(id);
-
-    let filteredProducts;
-
-    if (id == 0) {
-      filteredProducts = originalProducts;
-    } else {
-      filteredProducts = originalProducts.filter(
-        (product) => id == product.category_id
-      );
-    }
-
-    setProducts(filteredProducts);
-  };
 
   return (
     <div>
@@ -43,14 +25,8 @@ const App = () => {
         handleClick={() => setCartOpened(true)}
         categories={categories}
         setCategories={setCategories}
-        filterProducts={filterProducts}
-        selectedCategory={selectedCategory}
       />
-      <Content
-        products={products}
-        setProducts={setProducts}
-        setOriginalProducts={setOriginalProducts}
-      />
+      <Content products={products} setProducts={setProducts} />
       <Delivery />
       <Footer />
     </div>

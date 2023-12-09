@@ -52,13 +52,8 @@ const Drawer = ({ onClose, opened }) => {
 
     try {
       const response = await axios.post(
-        "http://coderali.khamidmk.beget.tech/public/api/orders",
-        postData,
-        {
-          headers: {
-            "Accept-Language": "ru",
-          },
-        }
+        "http://127.0.0.1:8000/api/orders",
+        postData
       );
 
       console.log("Response:", response.data);
@@ -114,7 +109,7 @@ const Drawer = ({ onClose, opened }) => {
                   <div>
                     <h3 className="cartItem_title">{item.title}</h3>
                     <span className="cartItem_price">
-                      {item.discounted_price} сум
+                      {parseInt(item.discounted_price)} сум
                     </span>
                   </div>
                   <div>
@@ -145,7 +140,7 @@ const Drawer = ({ onClose, opened }) => {
             <div className="items">
               <div>
                 <span>Всего :</span>
-                <h3>{totalPrice} сум</h3>
+                <h3>{parseInt(totalPrice)} сум</h3>
               </div>
               <button className="items_link" onClick={() => setModal(true)}>
                 Заказать

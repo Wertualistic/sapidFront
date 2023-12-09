@@ -1,0 +1,35 @@
+.VIpgJd-ZVi9od-l4eHX-hSRGPd {
+    display: none;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#google_translate_element select.goog-te-combo :not([value="ru"]):not([value="ru"]):not([value="uz"]) {
+    display: none;
+}
+
+select {
+    height: 20px;
+    overflow: hidden;
+    width: 70px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#google_translate_element {
+    height: 25px;
+    overflow: hidden;
+}
+
+.goog-te-gadget {
+    height: 25px;
+    overflow: hidden;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none;
+}

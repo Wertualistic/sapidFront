@@ -4,7 +4,7 @@ const Poster = ({ img }) => {
   return (
     <div className="hero_poster">
       <img
-        src={`http://coderali.khamidmk.beget.tech/public/storage/carousels/${img}`}
+        src={`http://127.0.0.1:8000/storage/carousels/${img}`}
         alt="hero_logo"
         className="hero_logo"
       />

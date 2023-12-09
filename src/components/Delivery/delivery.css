@@ -8,14 +8,14 @@
     padding: 80px 0;
 }
 
-.delivery_wrap{
+.delivery_wrap {
     width: 100%;
     display: flex;
     align-items: start;
     justify-content: space-between;
 }
 
-.delivery_wrap .delivery_img{
+.delivery_wrap .delivery_img {
     height: 400px;
 }
 
@@ -41,8 +41,12 @@
         line-height: 45px;
     }
 
-    .delivery_wrap{
+    .delivery_wrap {
         flex-direction: column;
+    }
+
+    .delivery_wrap .delivery_img {
+        display: none;
     }
 }
 

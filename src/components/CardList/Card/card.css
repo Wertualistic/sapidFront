@@ -1,6 +1,15 @@
-.content {
+.content#menu {
     background: #FCFCFC;
     padding: 80px 0;
+}
+
+.content__top {
+    margin: 20px 0;
+}
+
+.content__top h2 {
+    font-size: 42px;
+    font-weight: 700px;
 }
 
 .content_list {
@@ -10,9 +19,11 @@
     row-gap: 40px;
     align-items: center;
     justify-content: start;
+    padding: 30px 0;
 }
 
 .content_item {
+    width: auto;
     position: relative;
     max-width: 310px;
     padding: 20px;
@@ -28,13 +39,11 @@
 .discount {
     position: absolute;
     display: flex;
-    width: 63px;
+    white-space: nowrap;
     color: white;
     padding: 6px 8px;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     background: #EAC632;
     top: -15px;
     border-radius: 5px;
@@ -112,10 +121,6 @@
         max-width: 300px;
         padding: 10px;
     }
-
-        .content_list{
-            justify-content: center;
-        }
 }
 
 @media screen and (max-width: 320px) {
@@ -161,4 +166,17 @@
     font-weight: 600;
     color: #036C5E;
     background: #E6E9E8;
+}
+
+.loader {
+    width: 100%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }

@@ -51,7 +51,12 @@ const Card = ({
   return (
     <li className="content_item">
       {discount == "0" ? null : <div className="discount">- {discount}%</div>}
-      <img src={img_url} alt="" style={{ width: "270px", height: "200px" }} />
+      <div
+        className="card_image"
+        onClick={onClickAdd}
+        style={{ cursor: "pointer" }}>
+        <img src={img_url} alt="" style={{ width: "270px", height: "200px" }} />
+      </div>
       <div className="card_content">
         <h2 className="content_title">{title}</h2>
         <p className="content_text">{desc}</p>
@@ -71,7 +76,9 @@ const Card = ({
           ) : (
             <div style={{ display: "flex", gap: "41px", alignItems: "center" }}>
               <div className="content_wrap">
-                <span className="content_price">{discounted_price} сум</span>
+                <span className="content_price">
+                  {parseInt(discounted_price)} сум
+                </span>
                 {discount == "0" ? null : (
                   <span className="content_oldprice">{price} сум</span>
                 )}
