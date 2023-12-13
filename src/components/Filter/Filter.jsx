@@ -5,6 +5,7 @@ import FilterList from "./FilterList/FilterList";
 import Button from "../Button/Button";
 
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Filter = ({
   handleClick,
@@ -13,6 +14,7 @@ const Filter = ({
   filterProducts,
   selectedCategory,
 }) => {
+  const { t } = useTranslation();
   const { totalPrice } = useSelector((state) => state.cart);
   console.log(totalPrice);
 
@@ -27,7 +29,7 @@ const Filter = ({
         />
         <Button className="filter_cart" onClick={handleClick}>
           <img src="/images/basket.svg" alt="" />
-          <p>{parseInt(totalPrice)} sum</p>
+          <p>{parseInt(totalPrice)} {t("Sum")}</p>
         </Button>
       </div>
     </div>

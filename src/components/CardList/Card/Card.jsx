@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./card.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, minusItem, plusItem } from "../../../store/cartSlice";
+import { useTranslation } from "react-i18next";
 
 const Card = ({
   id,
@@ -13,6 +14,8 @@ const Card = ({
   discounted_price,
   discount,
 }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
@@ -49,7 +52,7 @@ const Card = ({
   const isInCart = cartItems.some((item) => item.id === id);
   // ну тут соответственно можно разделить на множество компонентов
   return (
-    <li className="content_item">
+    <li className="content_item" data-aos="fade-up-right">
       {discount == "0" ? null : <div className="discount">- {discount}%</div>}
       <div
         className="card_image"
@@ -77,10 +80,12 @@ const Card = ({
             <div style={{ display: "flex", gap: "41px", alignItems: "center" }}>
               <div className="content_wrap">
                 <span className="content_price">
-                  {parseInt(discounted_price)} сум
+                  {parseInt(discounted_price)} {t("Sum")}
                 </span>
                 {discount == "0" ? null : (
-                  <span className="content_oldprice">{price} сум</span>
+                  <span className="content_oldprice">
+                    {price} {t("Sum")}
+                  </span>
                 )}
               </div>
               <button className="content_cart" onClick={onClickAdd}>

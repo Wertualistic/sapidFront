@@ -76,3 +76,16 @@
     padding: 12px 25px;
   }
 }
+
+.swiper{
+  overflow: visible !important;
+}
+
+.swiper-pagination{
+  bottom: -20px !important;
+}
+.swiper-pagination-bullet{
+  width: 15px !important;
+  height: 15px !important;
+  background: white !important;
+}

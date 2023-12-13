@@ -1,8 +1,10 @@
 import React from "react";
 import "./footer.css";
+import Logo from "../Logo/Logo";
+import { useTranslation } from "react-i18next";
 
-// аналогично можно поделить на пару компонентов еще
 const Footer = () => {
+  const { t } = useTranslation();
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -14,22 +16,22 @@ const Footer = () => {
     <div className="footer">
       <div className="footer_top">
         <div className="footer_block container">
-          <img src="/images/logo.svg" alt="" className="footer_logo" />
+          <Logo />
           <ul className="footer_list">
             <li
               className="footer_item"
               onClick={() => scrollToSection("homeSection")}>
-              Главная
+              {t("Home")}
             </li>
             <li
               className="footer_item"
               onClick={() => scrollToSection("filterSection")}>
-              Меню
+              {t("Menu")}
             </li>
             <li
-              className="footer_item"
+              className="footer_item active"
               onClick={() => scrollToSection("deliverySection")}>
-              Контакты
+              {t("Contacts")}
             </li>
           </ul>
           <div id="google_translate_element"></div>
@@ -37,7 +39,9 @@ const Footer = () => {
       </div>
       <div className="footer_bottom">
         <div className="footer_block container">
-          <span className="footer_copyright">Copyright © 2022 sapid</span>
+          <span className="footer_copyright">
+            Copyright © 2023 Muhammad Ali
+          </span>
           <button onClick={() => scrollToSection("homeSection")}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +59,7 @@ const Footer = () => {
             </svg>
           </button>
           <p className="footer_text">
-            Сайт создан <span>Teamwork</span>
+            Site created <span>My Career Interns</span>
           </p>
         </div>
       </div>

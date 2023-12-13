@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./accordion.css";
-
+  
 import AccordionItem from "./AccordionItem/AccordionItem";
 import axios from "axios";
 
 const Accordion = () => {
-  const [faqList, setFaqlist] = useState([]);
+  const [faqList, setFaqlist] = useState([]); 
   useEffect(() => {
     const fetchData = async () => {
       try {

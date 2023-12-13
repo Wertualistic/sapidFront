@@ -11,8 +11,10 @@ import Button from "../Button/Button";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
 
 const Drawer = ({ onClose, opened }) => {
+  const { t } = useTranslation();
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   let cartItems = useSelector((state) => state.cart.cartItems);
@@ -31,7 +33,7 @@ const Drawer = ({ onClose, opened }) => {
       [name]: value,
     }));
   };
-  const success = () => toast.success("Your order was successfully sent!");
+  const success = () => toast.success(t("Sent"));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,7 +93,7 @@ const Drawer = ({ onClose, opened }) => {
     <div className={`overlay ${opened ? "overlayVisible" : ""}`}>
       <div className={`drawer ${opened ? "active" : ""}`}>
         <h2 className="drawer_title">
-          Корзина{" "}
+          {t("Cart")}
           <img
             src="/images/close.svg"
             alt="close"
@@ -109,7 +111,7 @@ const Drawer = ({ onClose, opened }) => {
                   <div>
                     <h3 className="cartItem_title">{item.title}</h3>
                     <span className="cartItem_price">
-                      {parseInt(item.discounted_price)} сум
+                      {parseInt(item.discounted_price)} {t("Sum")}
                     </span>
                   </div>
                   <div>
@@ -119,7 +121,6 @@ const Drawer = ({ onClose, opened }) => {
                       className="cartItem_delete"
                       onClick={() => onRemove(item.id)}
                     />
-                    {/* счетчик тоже отдельный комонент тк он у тебя и здесь и у карточек на странице */}
                     <div className="cartItem_counter">
                       <button
                         className="cartItem_minus"
@@ -139,23 +140,22 @@ const Drawer = ({ onClose, opened }) => {
             })}
             <div className="items">
               <div>
-                <span>Всего :</span>
-                <h3>{parseInt(totalPrice)} сум</h3>
+                <span>{t("Total")} :</span>
+                <h3>
+                  {parseInt(totalPrice)} {t("Sum")}
+                </h3>
               </div>
               <button className="items_link" onClick={() => setModal(true)}>
-                Заказать
+                {t("Send")}
               </button>
             </div>
           </div>
         ) : (
           <div className="empty">
             <img src="/images/empty-cart.jpg" alt="" className="empty_logo" />
-            <p className="empty_text">
-              Ваша корзина пуста, откройте "Меню" <br /> и выберите
-              понравившийся товар.
-            </p>
+            <p className="empty_text">{t("EmptyCart")}</p>
             <button className="empty_btn" onClick={onClose}>
-              Добавить в корзину
+              {t("AddToCart")}
             </button>
           </div>
         )}
@@ -163,7 +163,7 @@ const Drawer = ({ onClose, opened }) => {
           <div className={`sModal ${modal ? "active" : ""}`}>
             <div className="modal_content">
               <div className="modal_header">
-                <h2>Заказать доставку</h2>
+                <h2>{t("Send")}</h2>
                 <div onClick={() => setModal(false)} className="close_icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,7 @@ const Drawer = ({ onClose, opened }) => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Имя:"
+                    placeholder={`${t("Name")}`}
                     value={formData.name}
                     onChange={handleInputChange}
                     required
@@ -199,7 +199,7 @@ const Drawer = ({ onClose, opened }) => {
                   <input
                     type="text"
                     name="telephone"
-                    placeholder="Телефон:"
+                    placeholder={`${t("Telephone")}`}
                     value={formData.telephone}
                     onChange={handleInputChange}
                     required
@@ -207,7 +207,7 @@ const Drawer = ({ onClose, opened }) => {
                   <input
                     type="text"
                     name="address"
-                    placeholder="Адрес:"
+                    placeholder={`${t("Address")}`}
                     value={formData.address}
                     onChange={handleInputChange}
                     required
@@ -215,16 +215,10 @@ const Drawer = ({ onClose, opened }) => {
                   <div className="modal_footer">
                     <div className="privacy">
                       <input type="checkbox" required />
-                      <p>
-                        By creating an account, you agree{" "}
-                        <span>
-                          to our <br /> Terms
-                        </span>
-                        of use and <span>Privacy Policy</span>
-                      </p>
+                      <p>{t("Radio")}</p>
                     </div>
                     <Button type="submit" className={"modal_button"}>
-                      Отправить
+                      {t("Send")}
                     </Button>
                   </div>
                 </form>

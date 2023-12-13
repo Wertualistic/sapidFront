@@ -27,6 +27,10 @@
     cursor: pointer;
 }
 
+.footer_item.active{
+    color: #EAC632;
+}
+
 .footer_language {
     background: #02443B;
     padding: 14px;

@@ -4,8 +4,9 @@ import Poster from "../Sale/Poster/Poster";
 import Sale from "../Sale/Sale";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import "swiper/css/pagination";
 import axios from "axios";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const Hero = () => {
   const [carousels, setCarousels] = useState([]);
@@ -27,20 +28,23 @@ const Hero = () => {
       <Swiper
         spaceBetween={30}
         loop={true}
+        pagination={{ dynamicBullets: true }}
         autoplay={{
-          delay: 1500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay]}
+        modules={[Autoplay, Pagination]}
         className="mySwiper">
-        {carousels.map((itm) => (
-          <SwiperSlide key={itm.id}>
-            <div className="hero_item container">
-              <Sale {...itm} />
-              <Poster img={itm.img} />
-            </div>
-          </SwiperSlide>
-        ))}
+        {carousels.map((itm) => {
+          return (
+            <SwiperSlide key={itm.id}>
+              <div className="hero_item container">
+                <Sale {...itm} />
+                <Poster img={itm.img} />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </section>
   );

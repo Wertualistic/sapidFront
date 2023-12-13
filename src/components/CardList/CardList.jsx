@@ -46,7 +46,10 @@ const CardList = ({ products, setProducts, setOriginalProducts }) => {
           <div className="content" id="menu">
             <div className="container">
               {categories.map((category) => (
-                <div className="content__inner" key={category.id}>
+                <div
+                  className="content__inner"
+                  key={category.id}
+                  >
                   <div className="content__top" id={`section${category.id}`}>
                     <h2>{category.name}</h2>
                   </div>

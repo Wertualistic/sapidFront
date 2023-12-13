@@ -1,0 +1,18 @@
+{
+  "Home": "Bosh sahifa",
+  "Menu": "Menu",
+  "Contacts": "Aloqa",
+  "Cart": "Savatcha",
+  "Sum": " so'm",
+  "EmptyCart": "Savatingiz bo'sh, 'Menu'ni oching va yoqtirgan mahsulotni tanlang.",
+  "AddToCart": "Savatchaga qo'shish",
+  "Send": "Yuborish",
+  "OrderDelivery": "Yetkazib berish buyurtirish",
+  "Name": "Ism:",
+  "Telephone": "Telefon:",
+  "Address": "Manzil:",
+  "Radio": "Hisob yaratganingizda siz bizning Foydalanish shartlarimiziga va Maxfiylik siyosatiga rozilik bildirasiz",
+  "Sent": "Sizning buyurtmangiz muvaffaqiyatli yuborildi!",
+  "Total": "Jami:",
+  "All": "Hammasi"
+}

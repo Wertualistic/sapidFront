@@ -36,7 +36,7 @@
 }
 
 .accordion-collapse.open {
-    height: 100%;
+    height: 170px;
     transform: translateY(0);
 }
 

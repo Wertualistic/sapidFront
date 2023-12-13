@@ -22,6 +22,14 @@
   color: #FFFFFF;
 }
 
+.link:hover{
+  color: #EAC632;
+}
+
+.link.active {
+  color: #EAC632;
+}
+
 .actions {
   display: flex;
   gap: 10px;
@@ -44,7 +52,7 @@
 .language {
   display: flex;
   align-items: center;
-  padding: 14px;
+  padding: 10px;
   background: #348379;
   border-radius: 5px;
 }
