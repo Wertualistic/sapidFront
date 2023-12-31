@@ -16,7 +16,6 @@ const Filter = ({
 }) => {
   const { t } = useTranslation();
   const { totalPrice } = useSelector((state) => state.cart);
-  console.log(totalPrice);
 
   return (
     <div className="filter" id="filterSection">

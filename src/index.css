@@ -9,6 +9,7 @@
 
 html{
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 button {
@@ -31,6 +32,18 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+p{
+  margin-bottom: 0;
+}
+
+button{
+  outline: none !important;
+}
+
+img{
+  outline: none;
 }
 
 .container {

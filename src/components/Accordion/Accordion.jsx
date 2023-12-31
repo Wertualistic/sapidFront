@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./accordion.css";
-  
+
 import AccordionItem from "./AccordionItem/AccordionItem";
 import axios from "axios";
 
 const Accordion = () => {
-  const [faqList, setFaqlist] = useState([]); 
+  const [faqList, setFaqlist] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/locations");
+        const response = await axios.get(
+          "http://coderadd.beget.tech/public/api/locations"
+        );
 
         setFaqlist(response.data.locations);
       } catch (error) {

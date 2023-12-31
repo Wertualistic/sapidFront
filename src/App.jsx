@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Drawer from "./components/Drawer/Drawer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import TawkMessengerReactUmd from "@tawk.to/tawk-messenger-react";
+import Chat from "./components/Chat/Chat";
 
 const App = () => {
   const [cartOpened, setCartOpened] = useState(false);
@@ -21,10 +21,6 @@ const App = () => {
 
   return (
     <div>
-      <TawkMessengerReactUmd
-        propertyId="642ee5684247f20fefea34c6"
-        widgetId="1gtbj08ek"
-      />
       <ToastContainer />
 
       <Drawer onClose={() => setCartOpened(false)} opened={cartOpened} />
@@ -39,6 +35,7 @@ const App = () => {
       <Content products={products} setProducts={setProducts} />
       <Delivery />
       <Footer />
+      <Chat />
     </div>
   );
 };

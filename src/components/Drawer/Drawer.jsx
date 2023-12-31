@@ -12,9 +12,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
+import { InputMask } from "primereact/inputmask";
 
 const Drawer = ({ onClose, opened }) => {
   const { t } = useTranslation();
+  const lang = localStorage.getItem("lang");
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   let cartItems = useSelector((state) => state.cart.cartItems);
@@ -22,7 +24,7 @@ const Drawer = ({ onClose, opened }) => {
 
   const [formData, setFormData] = useState({
     name: "",
-    telephone: "",
+    telephone: "+998",
     address: "",
   });
 
@@ -39,7 +41,9 @@ const Drawer = ({ onClose, opened }) => {
     e.preventDefault();
 
     const products = cartItems.map((item) => ({
-      name: item.title,
+      name_uz: item.title_uz,
+      name_en: item.title_en,
+      name_ru: item.title_ru,
       price: item.discounted_price,
       quantity: item.count,
     }));
@@ -51,10 +55,9 @@ const Drawer = ({ onClose, opened }) => {
       total_price: totalPrice,
       products: products,
     };
-
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/orders",
+        "http://coderadd.beget.tech/public/api/orders",
         postData
       );
 
@@ -90,7 +93,10 @@ const Drawer = ({ onClose, opened }) => {
   };
 
   return (
-    <div className={`overlay ${opened ? "overlayVisible" : ""}`}>
+    <>
+      <div
+        className={`overlay ${opened ? "overlayVisible" : ""}`}
+        onClick={onClose}></div>
       <div className={`drawer ${opened ? "active" : ""}`}>
         <h2 className="drawer_title">
           {t("Cart")}
@@ -108,12 +114,18 @@ const Drawer = ({ onClose, opened }) => {
               return (
                 <div className="cartItem" key={index}>
                   <img src={item.img_url} alt="" className="cartItem_logo" />
-                  <div>
-                    <h3 className="cartItem_title">{item.title}</h3>
+                  <di>
+                    <h3 className="cartItem_title">
+                      {lang === "uz"
+                        ? item.title_uz
+                        : lang === "ru"
+                        ? item.title_ru
+                        : item.title_en}
+                    </h3>
                     <span className="cartItem_price">
                       {parseInt(item.discounted_price)} {t("Sum")}
                     </span>
-                  </div>
+                  </di>
                   <div>
                     <img
                       src="/images/delete.svg"
@@ -196,11 +208,12 @@ const Drawer = ({ onClose, opened }) => {
                     onChange={handleInputChange}
                     required
                   />
-                  <input
+                  <InputMask
                     type="text"
                     name="telephone"
                     placeholder={`${t("Telephone")}`}
                     value={formData.telephone}
+                    mask="+999 (99) 999 99 99"
                     onChange={handleInputChange}
                     required
                   />
@@ -227,7 +240,7 @@ const Drawer = ({ onClose, opened }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

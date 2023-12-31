@@ -1,9 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Title = () => {
+  const {t} = useTranslation();
   return (
     <h1 className="delivery_title" >
-      Доставка по всему Ташкенту!
+      {t('Delivery')}
     </h1>
   );
 };

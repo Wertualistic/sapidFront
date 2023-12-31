@@ -11,7 +11,7 @@ const Basket = ({ handleClick }) => {
   const [lang, setLang] = useState("ru");
   const [langOpen, setLangOpen] = useState(false);
   const { totalPrice } = useSelector((state) => state.cart);
-  const selectedLang = localStorage.getItem("lang") || "ru"; // Default to 'ru' if not set
+  const selectedLang = localStorage.getItem("lang") || "uz";
 
   const handleLangChange = (lang) => {
     setLang(lang);
@@ -23,7 +23,9 @@ const Basket = ({ handleClick }) => {
     <div className="actions">
       <div className="cart" onClick={handleClick}>
         <img src="/images/basket.svg" alt="" />
-        {parseInt(totalPrice) === 0 ? t("Cart") : parseInt(totalPrice) + t("Sum")}
+        {parseInt(totalPrice) === 0
+          ? t("Cart")
+          : parseInt(totalPrice) + t("Sum")}
       </div>
       <div className="language">
         <button onClick={() => setLangOpen(!langOpen)}>

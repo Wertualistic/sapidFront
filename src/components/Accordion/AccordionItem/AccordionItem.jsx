@@ -3,12 +3,17 @@ import React from "react";
 const AccordionItem = ({
   handler,
   id,
-  location,
-  title,
+  location_uz,
+  location_ru,
+  location_en,
+  title_uz,
+  title_ru,
+  title_en,
   number,
   email,
   open,
 }) => {
+  const lang = localStorage.getItem("lang");
   return (
     <li className="accordion-item" key={id}>
       <button
@@ -16,7 +21,7 @@ const AccordionItem = ({
         onClick={() => {
           handler(id);
         }}>
-        {title}
+        {lang === "uz" ? title_uz : lang === "ru" ? title_ru : title_en}
         <img
           src="/images/arrow.svg"
           alt=""
@@ -72,7 +77,9 @@ const AccordionItem = ({
                 fill="white"
               />
             </svg>
-            <span>{location}</span>
+            <span>
+              {lang === "uz" ? location_uz : lang === "ru" ? location_ru : location_en}
+            </span>
           </div>
         </div>
       </div>

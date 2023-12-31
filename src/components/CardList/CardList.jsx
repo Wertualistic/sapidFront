@@ -8,8 +8,9 @@ const CardList = ({ products, setProducts, setOriginalProducts }) => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [cards, setCards] = useState([]);
+  const lang = localStorage.getItem("lang");
 
-  const apiUrlCategories = "http://127.0.0.1:8000/api/categories";
+  const apiUrlCategories = "http://coderadd.beget.tech/public/api/categories";
 
   useEffect(() => {
     axios
@@ -24,7 +25,7 @@ const CardList = ({ products, setProducts, setOriginalProducts }) => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/products")
+      .get("http://coderadd.beget.tech/public/api/products")
       .then((response) => {
         setCards(response.data);
         setLoading(false);
@@ -49,9 +50,15 @@ const CardList = ({ products, setProducts, setOriginalProducts }) => {
                 <div
                   className="content__inner"
                   key={category.id}
-                  >
-                  <div className="content__top" id={`section${category.id}`}>
-                    <h2>{category.name}</h2>
+                  id={`${category.name_en}`}>
+                  <div className="content__top">
+                    <h2>
+                      {lang === "uz"
+                        ? category.name_uz
+                        : lang === "ru"
+                        ? category.name_ru
+                        : category.name_en}
+                    </h2>
                   </div>
                   <div className="content_list">
                     {cards

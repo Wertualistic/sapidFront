@@ -2,7 +2,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     background: #00000080;
     visibility: hidden;
@@ -17,10 +17,10 @@
 }
 
 .drawer {
-    position: absolute;
-    width: 500px;
+    position: fixed;
+    width: 50%;
     height: 100%;
-    right: -500px;
+    right: -1000px;
     background-color: #fff;
     padding: 30px;
     display: flex;
@@ -45,13 +45,14 @@
 
 .cartItem {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: end;
+    justify-content: start;
     padding: 20px;
     background: #FBFBFB;
     border-radius: 6px;
     margin-bottom: 20px;
     position: relative;
+    gap: 30px;
 }
 
 .cartItem_logo {
